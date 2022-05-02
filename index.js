@@ -9,5 +9,5 @@ inputBtn.addEventListener("click", function() {
 })
 
 for(let i = 0; i < myNotes.length; i++) {
-  ulEl.textContent += myNotes[i] + " "
+  ulEl.innerHTML +=  "<li>" + myNotes[i] + "</li>"
 }
