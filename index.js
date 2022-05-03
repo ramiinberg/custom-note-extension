@@ -43,7 +43,6 @@ function renderTitles(arr) {
   let listItems = ""
   for(let i = 0; i < arr.length; i++) {
     if (!arr[i].isShown) {
-      console.log('tänne')
       listItems += `
         <li>
           <button class="title-closed-btn" onclick="changeTitleButtonStatus(${i}, true)">${arr[i].name}</button>
