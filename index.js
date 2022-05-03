@@ -6,6 +6,10 @@ const ulEl = document.getElementById("ul-el")
 inputBtn.addEventListener("click", function() {
   myNotes.push(inputEl.value)
   inputEl.value = ""
+
+  localStorage.setItem("myNotes", JSON.stringify(myNotes))
+  console.log(localStorage.getItem("myNotes"))
+
   renderListItems()
 })
 
