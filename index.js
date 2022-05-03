@@ -6,10 +6,9 @@ const deleteBtn = document.getElementById("delete-btn")
 const tabBtn = document.getElementById("tab-btn")
 
 const notesFromLocalStorage = JSON.parse(localStorage.getItem("myNotes"))
-
 if(notesFromLocalStorage) {
   myNotes = notesFromLocalStorage
-  renderDom(myNotes)
+  renderTitles(myNotes)
 }
 
 // tabBtn.addEventListener("click", function() {
@@ -28,24 +27,42 @@ if(notesFromLocalStorage) {
 // })
 
 inputBtn.addEventListener("click", function() {
-  myNotes.push(inputEl.value)
+  myNotes.push({ 
+    name: inputEl.value
+  })
   inputEl.value = ""
 
   localStorage.setItem("myNotes", JSON.stringify(myNotes))
-  renderDom(myNotes)
+  renderTitles(myNotes)
 })
 
-function renderDom(arr) {
+function renderTitles(arr) {
+  console.log('arr', arr)
   let listItems = ""
   for(let i = 0; i < arr.length; i++) {
     listItems += `
-    <li>
-      <a target='_blank' href='https://${arr[i]}'>
-        ${arr[i]}
-      </a>
-    </li>`
+      <li>
+        <button class="title-btn">${arr[i].name}</button>
+      </li>
+    `
   }
-  
+
   ulEl.innerHTML = listItems
 }
+
+
+
+// function renderDom(arr) {
+//   let listItems = ""
+//   for(let i = 0; i < arr.length; i++) {
+//     listItems += `
+//     <li>
+//       <a target='_blank' href='https://${arr[i]}'>
+//         ${arr[i]}
+//       </a>
+//     </li>`
+//   }
+  
+//   ulEl.innerHTML = listItems
+// }
 

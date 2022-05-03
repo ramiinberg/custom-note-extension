@@ -22,6 +22,11 @@ button {
   font-weight: bold;
 }
 
+.title-btn {
+  color: blue;
+  background-color: white;
+}
+
 #delete-btn {
   color: blue;
   background-color: white;
