@@ -3,6 +3,7 @@ const inputBtn = document.getElementById("input-btn")
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
+const tabBtn = document.getElementById("tab-btn")
 
 const notesFromLocalStorage = JSON.parse(localStorage.getItem("myNotes"))
 
@@ -10,6 +11,16 @@ if(notesFromLocalStorage) {
   myNotes = notesFromLocalStorage
   renderDom(myNotes)
 }
+
+const tabs = [
+  {url: "https://www.linkedin.com/in/rami-inberg/"}
+]
+
+tabBtn.addEventListener("click", function() {
+  myNotes.push(tabs[0].url)
+  localStorage.setItem("myNotes", JSON.stringify(myNotes))
+  renderDom(myNotes)
+})
 
 deleteBtn.addEventListener("dblclick", function() {
   localStorage.clear()
