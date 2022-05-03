@@ -2,6 +2,7 @@ let myNotes = []
 const inputBtn = document.getElementById("input-btn")
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
+const deleteBtn = document.getElementById("delete-btn")
 
 const notesFromLocalStorage = JSON.parse(localStorage.getItem("myNotes"))
 
@@ -9,15 +10,18 @@ if(notesFromLocalStorage) {
   myNotes = notesFromLocalStorage
   renderListItems()
 }
-console.log(notesFromLocalStorage)
+
+deleteBtn.addEventListener("dblclick", function() {
+  localStorage.clear()
+  myNotes = []
+  renderListItems()
+})
 
 inputBtn.addEventListener("click", function() {
   myNotes.push(inputEl.value)
   inputEl.value = ""
 
   localStorage.setItem("myNotes", JSON.stringify(myNotes))
-  console.log(localStorage.getItem("myNotes"))
-
   renderListItems()
 })
 
