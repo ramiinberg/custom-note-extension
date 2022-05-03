@@ -8,13 +8,13 @@ const notesFromLocalStorage = JSON.parse(localStorage.getItem("myNotes"))
 
 if(notesFromLocalStorage) {
   myNotes = notesFromLocalStorage
-  renderListItems()
+  renderDom(myNotes)
 }
 
 deleteBtn.addEventListener("dblclick", function() {
   localStorage.clear()
   myNotes = []
-  renderListItems()
+  renderDom(myNotes)
 })
 
 inputBtn.addEventListener("click", function() {
@@ -22,16 +22,16 @@ inputBtn.addEventListener("click", function() {
   inputEl.value = ""
 
   localStorage.setItem("myNotes", JSON.stringify(myNotes))
-  renderListItems()
+  renderDom(myNotes)
 })
 
-function renderListItems() {
+function renderDom(arr) {
   let listItems = ""
-  for(let i = 0; i < myNotes.length; i++) {
+  for(let i = 0; i < arr.length; i++) {
     listItems += `
     <li>
-      <a target='_blank' href='https://${myNotes[i]}'>
-        ${myNotes[i]}
+      <a target='_blank' href='https://${arr[i]}'>
+        ${arr[i]}
       </a>
     </li>`
   }
