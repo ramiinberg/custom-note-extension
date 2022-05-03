@@ -3,6 +3,9 @@ const inputBtn = document.getElementById("input-btn")
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
 
+const notesFromLocalStorage = JSON.parse(localStorage.getItem("myNotes"))
+console.log(notesFromLocalStorage)
+
 inputBtn.addEventListener("click", function() {
   myNotes.push(inputEl.value)
   inputEl.value = ""
