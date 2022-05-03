@@ -4,6 +4,11 @@ const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
 
 const notesFromLocalStorage = JSON.parse(localStorage.getItem("myNotes"))
+
+if(notesFromLocalStorage) {
+  myNotes = notesFromLocalStorage
+  renderListItems()
+}
 console.log(notesFromLocalStorage)
 
 inputBtn.addEventListener("click", function() {
