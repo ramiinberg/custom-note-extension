@@ -18,8 +18,13 @@ button {
   color:white;
   background-color: blue;
   padding: 10px 20px;
-  border: none;
+  border: 1px solid blue;
   font-weight: bold;
+}
+
+#delete-btn {
+  color: blue;
+  background-color: white;
 }
 
 ul {
