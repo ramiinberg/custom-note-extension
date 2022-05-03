@@ -6,6 +6,7 @@ const deleteBtn = document.getElementById("delete-btn")
 const tabBtn = document.getElementById("tab-btn")
 
 const notesFromLocalStorage = JSON.parse(localStorage.getItem("myNotes"))
+// localStorage.clear()
 if(notesFromLocalStorage) {
   myNotes = notesFromLocalStorage
   renderTitles(myNotes)
@@ -28,7 +29,8 @@ if(notesFromLocalStorage) {
 
 inputBtn.addEventListener("click", function() {
   myNotes.push({ 
-    name: inputEl.value
+    name: inputEl.value,
+    isShown: false
   })
   inputEl.value = ""
 
