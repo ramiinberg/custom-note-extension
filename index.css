@@ -22,9 +22,14 @@ button {
   font-weight: bold;
 }
 
-.title-btn {
+.title-closed-btn {
   color: blue;
   background-color: white;
+  width: 100%;
+  text-align: start;
+}
+
+.title-open-btn {
   width: 100%;
   text-align: start;
 }

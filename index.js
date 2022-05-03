@@ -42,14 +42,30 @@ function renderTitles(arr) {
   console.log('arr', arr)
   let listItems = ""
   for(let i = 0; i < arr.length; i++) {
-    listItems += `
-      <li>
-        <button class="title-btn">${arr[i].name}</button>
-      </li>
-    `
+    if (!arr[i].isShown) {
+      console.log('tänne')
+      listItems += `
+        <li>
+          <button class="title-closed-btn" onclick="changeTitleButtonStatus(${i}, true)">${arr[i].name}</button>
+        </li>
+      `
+    }
+    else {
+      listItems += `
+        <li>
+          <button class="title-open-btn" onclick="changeTitleButtonStatus(${i}, false)">${arr[i].name}</button>
+        </li>
+      `
+    }
   }
-
+  console.log(listItems)
   ulEl.innerHTML = listItems
+}
+
+function changeTitleButtonStatus(id, isShown) {
+  myNotes[id].isShown = isShown
+  localStorage.setItem("myNotes", JSON.stringify(myNotes))
+  renderTitles(myNotes)
 }
 
 
