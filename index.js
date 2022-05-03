@@ -12,20 +12,20 @@ if(notesFromLocalStorage) {
   renderDom(myNotes)
 }
 
-tabBtn.addEventListener("click", function() {
-  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    myNotes.push(tabs[0].url)
-    localStorage.setItem("myNotes", JSON.stringify(myNotes))
-    renderDom(myNotes)
-  })
+// tabBtn.addEventListener("click", function() {
+//   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+//     myNotes.push(tabs[0].url)
+//     localStorage.setItem("myNotes", JSON.stringify(myNotes))
+//     renderDom(myNotes)
+//   })
  
-})
+// })
 
-deleteBtn.addEventListener("dblclick", function() {
-  localStorage.clear()
-  myNotes = []
-  renderDom(myNotes)
-})
+// deleteBtn.addEventListener("dblclick", function() {
+//   localStorage.clear()
+//   myNotes = []
+//   renderDom(myNotes)
+// })
 
 inputBtn.addEventListener("click", function() {
   myNotes.push(inputEl.value)
