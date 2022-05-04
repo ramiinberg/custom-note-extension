@@ -53,6 +53,10 @@ function renderTitles(arr) {
       listItems += `
         <li>
           <button class="title-open-btn" onclick="changeTitleButtonStatus(${i}, false)">${arr[i].name}</button>
+          <div>
+            <span>Sub label:</span>
+            <input type="text" id="input-sub-el">
+          </div>
         </li>
       `
     }

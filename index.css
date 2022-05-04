@@ -17,7 +17,7 @@ input {
 button {
   color:white;
   background-color: blue;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border: 1px solid blue;
   font-weight: bold;
 }
@@ -32,6 +32,12 @@ button {
   background-color: white;
   width: 100%;
   text-align: start;
+}
+
+#input-sub-el {
+  margin: 10px 30px;
+  box-sizing: border-box;
+  width: 50%;
 }
 
 #delete-btn {
