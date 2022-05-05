@@ -30,7 +30,8 @@ if(notesFromLocalStorage) {
 inputBtn.addEventListener("click", function() {
   myNotes.push({ 
     name: inputEl.value,
-    isShown: false
+    isShown: false,
+    notes: []
   })
   inputEl.value = ""
 
