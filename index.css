@@ -34,10 +34,15 @@ button {
   text-align: start;
 }
 
+#sub-label {
+  width: 100;
+}
+
+
 #input-sub-el {
   margin: 10px 30px;
   box-sizing: border-box;
-  width: 50%;
+  width: 70%;
 }
 
 #delete-btn {
