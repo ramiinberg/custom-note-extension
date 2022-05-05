@@ -47,6 +47,7 @@ function renderTitles(arr) {
         <li>
           <button class="title-closed-btn" onclick="changeTitleButtonStatus(${i}, true)">${arr[i].name}</button>
         </li>
+        <hr />
       `
     }
     else {
@@ -61,6 +62,7 @@ function renderTitles(arr) {
           <button>Add link</button>
           <button>Save tab</button>
         </li>
+        <hr />
       `
     }
   }
