@@ -40,7 +40,6 @@ inputBtn.addEventListener("click", function() {
 })
 
 function renderTitles(arr) {
-  console.log('arr', arr)
   let listItems = ""
   for(let i = 0; i < arr.length; i++) {
     if (!arr[i].isShown) {
@@ -57,9 +56,9 @@ function renderTitles(arr) {
           <button class="title-open-btn" onclick="changeTitleButtonStatus(${i}, false)">${arr[i].name}</button>
           <div id="sub-label">
             <span>Sub label:</span>
-            <input type="text" id="input-sub-el">
+            <input type="text" id="input-sub-el-${i}">
           </div>
-          <button>Add sub label</button>
+          <button onclick="saveSubLabel(${i})">Add sub label</button>
           <button>Add link</button>
           <button>Save tab</button>
         </li>
@@ -67,7 +66,7 @@ function renderTitles(arr) {
       `
     }
   }
-  console.log(listItems)
+  console.log(myNotes)
   ulEl.innerHTML = listItems
 }
 
@@ -77,6 +76,17 @@ function changeTitleButtonStatus(id, isShown) {
   renderTitles(myNotes)
 }
 
+function saveSubLabel(id) {
+  const inputSub = document.getElementById(`input-sub-el-${id}`)
+  const label = inputSub.value
+  if(label) {
+    myNotes[id].notes.push({ type: "label", text: label})
+    label.value = ""
+
+    localStorage.setItem("myNotes", JSON.stringify(myNotes))
+    renderTitles(myNotes)
+  }
+}
 
 
 // function renderDom(arr) {
