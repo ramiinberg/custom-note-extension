@@ -58,8 +58,8 @@ function renderTitles(arr) {
             <span>Sub label:</span>
             <input type="text" id="input-sub-el-${i}">
           </div>
-          <button onclick="saveSubLabel(${i})">Add sub label</button>
-          <button>Add link</button>
+          <button onclick="saveSubLabel(${i}, true)">Add sub label</button>
+          <button onclick="saveSubLabel(${i}, false, true)>Add link</button>
           <button>Save tab</button>
         </li>
         <hr />
@@ -76,13 +76,17 @@ function changeTitleButtonStatus(id, isShown) {
   renderTitles(myNotes)
 }
 
-function saveSubLabel(id) {
+function saveSubLabel(id, isLabel = false, isLink = false) {
   const inputSub = document.getElementById(`input-sub-el-${id}`)
-  const label = inputSub.value
-  if(label) {
-    myNotes[id].notes.push({ type: "label", text: label})
+  const inputValue = inputSub.value
+  if(inputValue) {
+    if(isLabel) {
+      myNotes[id].notes.push({ type: "label", text: inputValue}) 
+    }
+    else if(isLink) {
+      myNotes[id].notes.push({ type: "link", text: inputValue}) 
+    }
     label.value = ""
-
     localStorage.setItem("myNotes", JSON.stringify(myNotes))
     renderTitles(myNotes)
   }
